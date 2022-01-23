@@ -1,7 +1,7 @@
 import Layout from '../components/layouts/main'
-import Fonts from '../components/fonts'
+import Fonts from '../components/core/fonts'
 import { AnimatePresence } from 'framer-motion'
-import Chakra from '../components/chakra'
+import Chakra from '../components/core/chakra'
 
 function Website({ Component, pageProps, router }) {
   return (

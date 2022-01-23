@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import NavBar from '../navbar'
+import NavBar from '../core/navbar'
 import { Box, Container } from '@chakra-ui/react'
 
 const Main = ({ children, router }) => {
