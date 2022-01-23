@@ -1,26 +1,36 @@
 import useSWR from 'swr'
+import React from 'react'
 
 import {
   Container,
-  Box,
   Heading,
 } from '@chakra-ui/react'
 
-const Joke = () => {
-  return (
-    <>
-      <Container>
 
-      </Container>
-      </>
+export default function Joke() {
+  const headers = {
+    'Accept': 'application/json'
+  }
+  const fetcher = (...args) => fetch(...args, { headers }).then((res) => res.json())
+  const {data, error} = useSWR('https://icanhazdadjoke.com', fetcher)
+
+  if (error) return <div>Failed to load</div>
+  if (!data) return <div>Loading...</div>
+
+  return (
+    <section>
+      <h1 title={data.id}>{data.joke}</h1>
+
+      <style jsx>{`
+        section {
+          padding: 3rem;
+          margin-top: 2rem;
+        }
+        h1 {
+          font-size: 2em;
+          text-align: center;
+        }
+      `}</style>
+    </section>
   )
 }
-
-function getdata() {
-  const {data, error} = useSWR('https://icanhazdadjoke.com', fetch)
-
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-  return <div>Joke({data.id}): {data.joke}</div>
-}
-export default Joke

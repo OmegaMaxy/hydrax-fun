@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Joke from '../components/joke'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <p className="description">
           Click <span style={{color:"#39f", cursor: "pointer"}}>here</span> to generate a new one.
         </p>
+        <Joke/>
 
       </main>
 
@@ -18,7 +20,7 @@ export default function Home() {
 
       <style jsx>{`
         .container {
-          min-height: 100vh;
+          /*min-height: 100vh;*/
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;

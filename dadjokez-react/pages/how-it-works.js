@@ -11,17 +11,18 @@ export default function HowItWorks() {
         <p className="description">
           We're using <a href="https://icanhazdadjoke.com">the dad jokes API.</a>
         </p>
+        <section class="container">
+          <code>
+            NextJS Application -> https://icanhazdadjoke.com -> Application without reloading
+          </code>
+        </section>
 
       </main>
 
       <style jsx>{`
         .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          margin-top: 1rem;
+          padding: 2rem 0.5rem;
         }
 
         main {
