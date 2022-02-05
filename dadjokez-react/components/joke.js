@@ -12,7 +12,6 @@ import {
   CloseButton,
 } from '@chakra-ui/react'
 
-
 class Joke extends React.Component {
   constructor(props) {
     super(props);
@@ -43,16 +42,11 @@ class Joke extends React.Component {
       obj.error = true;
       this.setState(obj);
     });
-
-
-
   };
   componentDidMount() {
     this.getJoke();
   }
   render() {
-
-    console.log('Joke Component is re-rendered');
     var { error, data } = this.state;
     return (
       <section>
@@ -83,10 +77,18 @@ class Joke extends React.Component {
             }
             .jokeText {
               font-size: large;
+              text-align: center;
             }
             .renderbtn {
               color: #39f;
               cursor: pointer;
+              -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                 -khtml-user-select: none; /* Konqueror HTML */
+                   -moz-user-select: none; /* Old versions of Firefox */
+                    -ms-user-select: none; /* Internet Explorer/Edge */
+                        user-select: none; /* Non-prefixed version, currently
+                                              supported by Chrome, Edge, Opera and Firefox */
             }
             .renderbtn:hover {
               text-decoration: underline;
@@ -94,10 +96,6 @@ class Joke extends React.Component {
             section {
               padding: 3rem;
               margin-top: 2rem;
-            }
-            h1 {
-              font-size: 2em;
-              text-align: center;
             }
             p.loading {
               text-align: center;

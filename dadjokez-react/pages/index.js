@@ -4,9 +4,6 @@ import Joke from '../components/joke'
 import React from 'react'
 
 class Home extends React.Component {
-  reRender = () => {
-    this.forceUpdate();
-  };
   render() {
 
     console.log('Component is re-rendered');
