@@ -17,28 +17,32 @@ class Joke extends React.Component {
   constructor(props) {
     super(props);
     this.state = {data: {}, error: false};
+
+    this.getJoke = this.getJoke.bind(this);
   }
   getJoke() {
     const headers = {
       'Accept': 'application/json'
     }
-    /*const fetcher = (...args) => fetch(...args, { headers }).then((res) => res.json())
+    /*
+    Can only be used in a function
+    const fetcher = (...args) => fetch(...args, { headers }).then((res) => res.json())
     const {data, error} = useSWR('https://icanhazdadjoke.com', fetcher);*/
     let obj = {
       data: {},
       error: false,
     };
     fetch('https://icanhazdadjoke.com', { headers })
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       if (data.error) obj.error = true;
       if (data) obj.data = data;
       this.setState(obj);
     })
-    .catch(err => {
+    .catch((err) => {
       obj.error = true;
       this.setState(obj);
-    })
+    });
 
 
 
@@ -48,12 +52,8 @@ class Joke extends React.Component {
   }
   render() {
 
-    console.log('Component is re-rendered');
+    console.log('Joke Component is re-rendered');
     var { error, data } = this.state;
-    console.log("ss");
-    console.log(data);
-    /*const hasError = this.state.error;
-    const hasData = this.state.data;*/
     return (
       <section>
         <div>
@@ -71,11 +71,19 @@ class Joke extends React.Component {
             data == {} ? (
               <p className="loading">Loading...</p>
             ) : (
-              <h1>{this.state.data.joke}</h1>
+              <div className="joke">
+                <h1 className="jokeText">{this.state.data.joke}</h1>
+              </div>
             )
           )
           }
           <style jsx>{`
+            .joke {
+              margin-top: 2rem;
+            }
+            .jokeText {
+              font-size: large;
+            }
             .renderbtn {
               color: #39f;
               cursor: pointer;
@@ -92,6 +100,11 @@ class Joke extends React.Component {
               text-align: center;
             }
             p.loading {
+              text-align: center;
+            }
+            .description {
+              line-height: 1.5;
+              font-size: 1.5rem;
               text-align: center;
             }
           `}</style>

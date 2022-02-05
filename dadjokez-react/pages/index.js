@@ -61,17 +61,12 @@ class Home extends React.Component {
           .title {
             margin: 0;
             line-height: 1.15;
-            font-size: 4rem;
+            font-size: 3rem;
           }
 
           .title,
           .description {
             text-align: center;
-          }
-
-          .description {
-            line-height: 1.5;
-            font-size: 1.5rem;
           }
 
           code {
