@@ -11,7 +11,7 @@ export default function HowItWorks() {
         <p className="description">
           We're using <a href="https://icanhazdadjoke.com">the dad jokes API.</a>
         </p>
-        <section class="container">
+        <section class="container code" style={{marginTop: 2 + 'rem'}}>
           <code>
             NextJS Application -> https://icanhazdadjoke.com -> Application without reloading
           </code>
@@ -85,7 +85,7 @@ export default function HowItWorks() {
           font-size: 1.5rem;
         }
 
-        code {
+        .code {
           background: #fafafa;
           border-radius: 5px;
           padding: 0.75rem;
